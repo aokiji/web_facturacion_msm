@@ -1,0 +1,32 @@
+- title ||=nil
+- taxes= true if taxes.nil?
+- @invoice ||= eval "@#{invoice}"
+-# include jquery ui
+- content_for :javascript do
+  = javascript_include_tag 'jquery.ui.min'
+  = javascript_include_tag 'jquery.datepicker.es'
+:javascript
+  $(function() {
+    date_input = $( "#fecha" );
+    hidden_input = $("##{invoice}_created_at");
+    date_input.bind( 'change', function(){
+      date = $(this).datepicker("getDate");
+      hidden_input.attr('value', $.datepicker.formatDate('yy-mm-dd', date));
+    });
+    date_input.datepicker();
+    date_input.datepicker( "option", "showAnim", "slideDown" );
+    if (hidden_input.attr('value') === "") { 
+      date_input.datepicker("setDate", new Date());
+      hidden_input.attr('value', $.datepicker.formatDate('yy-mm-dd', new Date()));
+    }else{
+      date_input.datepicker("setDate", $.datepicker.parseDate( 'yy-mm-dd', hidden_input.attr('value'))); 
+    }
+  });
+
+-haml_tag "##{invoice}" do
+  %h1= title || "Editando #{invoice} #{@invoice.number}"
+  = render :partial => 'invoice/form', :locals => {:invoice => invoice, :taxes => taxes}
+#footer
+  = link_to 'Ver', @invoice
+  |
+  = link_to invoice.to_s.humanize.capitalize.pluralize, (eval "#{invoice.to_s.pluralize}_path")

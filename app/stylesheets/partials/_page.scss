@@ -1,0 +1,143 @@
+// Import the non-default scaffolding module to help us get started.
+@import "blueprint/scaffolding";
+
+// This configuration will only apply the
+// blueprint styles to pages with a body class of "bp"
+// This makes it easier to have pages without blueprint styles
+// when you're using a single/combined stylesheet.
+
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction; }
+
+// Remove the scaffolding when you're ready to start doing visual design.
+// Or leave it in if you're happy with how blueprint looks out-of-the-box
+@include blueprint-scaffolding;
+.container {
+  @include container;
+}
+#error_explanation{
+  position: relative;
+  left: $blueprint-container-size/2 - 450/2;
+  width: 450px;
+  h2 {text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;}
+  ul {font-size: 12px;
+  list-style: square;text-align:left; margin-bottom:0}  
+}
+#login {
+  margin: 200px auto;
+  text-align:center;
+}
+#notice {
+  text-align: center;
+}
+$home-width: 900px;
+$factura-menu-width: 338px;
+$presupuesto-menu-width: 491px;
+
+#home {
+  background: url(/images/home_back.png) no-repeat;
+  width: $home-width;
+  height: 600px;
+}
+@mixin home-options {
+    display:block;
+    background: url(/images/toolbar_back.png) no-repeat;
+    width: 700px;
+    height: 156px;
+    position: relative;
+    top: 70px;
+}
+@mixin no-text{
+  font-size: 1px;
+  color: white;
+  text-decoration: none;
+}
+@mixin new-icon{
+  display: block;
+  background: url(/images/nueva_icono.png) no-repeat;
+  width: 58px;
+  height: 70px;
+}
+@mixin all-icon{
+  display: block;
+  background: url(/images/todas_icon.png) no-repeat;
+  width: 55px;
+  height: 75px;
+}
+  
+#menu {
+  padding: 0;
+  list-style:none;
+  li {list-style: none;}
+  #facturas{
+    a {font-size: 1px;
+    color: white;
+    text-decoration: none;}
+    display: block;
+    background: url(/images/factura_menu.png) no-repeat;
+    width: $factura-menu-width;
+    height:45px;
+    position: relative;
+    top: 60px;
+    left: ($home-width - $factura-menu-width) / 2;
+  }
+  #factura_options{
+    @include home-options;
+    left: 100px - ($home-width - $factura-menu-width) / 2;
+  }
+  #new_factura{
+    @include no-text;
+    @include new-icon;
+    position: absolute;
+    left: 100px;
+    top: 13px;
+  }
+  #index_factura{
+    @include no-text;
+    @include all-icon;
+    position: absolute;
+    left: 500px;
+    top: 10px;
+  }
+  #presupuestos{
+    a {font-size: 1px;
+    color: white;
+    text-decoration: none;}
+    display: block;
+    background: url(/images/presupuesto_menu.png) no-repeat;
+    width: $presupuesto-menu-width;
+    height:45px;
+    position: relative;
+    top: 270px;
+    left: ($home-width - $presupuesto-menu-width) / 2;
+  }
+  #presupuesto_options{
+    @include home-options;
+    left: 100px - ($home-width - $presupuesto-menu-width) / 2;
+  }
+  #new_presupuesto{
+    @include no-text;
+    @include new-icon;
+    position: absolute;
+    left: 100px;
+    top: 13px;
+  }
+  #index_presupuesto{
+    @include no-text;
+    @include all-icon;
+    position: absolute;
+    left: 500px;
+    top: 10px;
+  }
+}
+@import "factura";
+@import "presupuesto";
+@import "albaran";
+@import "jquery.ui";

@@ -1,0 +1,41 @@
+- content_for :javascript do
+  = javascript_include_tag 'jquery.ui.min'
+  = javascript_include_tag 'jquery.datepicker.es'
+:javascript
+  //localize dates
+  $(document).ready(function (){
+    $('.date').each( function(){
+      date = $.datepicker.parseDate('yy-mm-dd', $(this).text().trim());
+      $(this).text($.datepicker.formatDate($.datepicker.regional['es'].dateFormat, date));
+    });
+   });
+  
+%h1 Listado de Facturas
+
+%table
+  %tr
+    %th Numero
+    %th Fecha
+    %th Cliente
+    %th
+    %th
+    %th
+
+  - @facturas.each do |factura|
+    %tr
+      %td
+        = factura.number
+      %td.date
+        = factura.created_at
+      %td
+        = factura.cliente
+      %td 
+        = link_to 'Ver', factura
+      %td 
+        = link_to 'Editar', edit_factura_path(factura)
+      %td 
+        = link_to 'Eliminar', factura, :confirm => '¿Estas seguro?', :method => :delete
+
+%br
+
+= link_to 'Nueva Factura', new_factura_path

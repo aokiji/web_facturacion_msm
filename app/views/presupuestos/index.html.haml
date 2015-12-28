@@ -1,0 +1,41 @@
+- content_for :javascript do
+  = javascript_include_tag 'jquery.ui.min'
+  = javascript_include_tag 'jquery.datepicker.es'
+:javascript
+  //localize dates
+  $(document).ready(function (){
+    $('.date').each( function(){
+      date = $.datepicker.parseDate('yy-mm-dd', $(this).text().trim());
+      $(this).text($.datepicker.formatDate($.datepicker.regional['es'].dateFormat, date));
+    });
+   });
+  
+%h1 Listado de Presupuestos
+
+%table
+  %tr
+    %th Numero
+    %th Fecha
+    %th Cliente
+    %th
+    %th
+    %th
+
+  - @presupuestos.each do |presupuesto|
+    %tr
+      %td
+        = presupuesto.number
+      %td.date
+        = presupuesto.created_at
+      %td
+        = presupuesto.cliente
+      %td 
+        = link_to 'Ver', presupuesto
+      %td 
+        = link_to 'Editar', edit_presupuesto_path(presupuesto)
+      %td 
+        = link_to 'Eliminar', presupuesto, :confirm => '¿Estas seguro?', :method => :delete
+
+%br
+
+= link_to 'Nuevo presupuesto', new_presupuesto_path

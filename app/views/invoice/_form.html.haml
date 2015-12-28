@@ -1,0 +1,151 @@
+-taxes= true if taxes.nil?
+:javascript
+  $(function(){
+    // boton de añadir fila
+    $("#new_item").bind('click', function(e){
+      e.preventDefault();
+      rows =  $("##{invoice.to_s}-items tr.item");
+      id = rows.size();
+      html='<tr class="item"><td><input id="#{invoice}_items_attributes_?_cantidad" name="#{invoice.to_s}[items_attributes][?][cantidad]" size="3" type="text"></td><td><input id="#{invoice.to_s}_items_attributes_?_precio_unidad" name="#{invoice.to_s}[items_attributes][?][precio_unidad]" size="5" type="text"></td><td><textarea cols="40" id="#{invoice.to_s}_items_attributes_?_description" name="#{invoice.to_s}[items_attributes][?][description]" rows="3"></textarea></td><td></td><td class="options"><a class="item_delete"></a></td></tr>'.replace(/\?/g, id);
+      if (id != 0){
+        $(rows[id-1]).after(html);
+      }else{
+        $($("##{invoice.to_s}-items tr")[0]).after(html);
+      }
+    });
+    $("form input[type='text']").bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+    // calculate live
+    $('##{invoice.to_s}-items tr.item').live('click', function(){
+      attr = $(this).find('td input');
+      cantidad = parseInt(attr[0].value);
+      precio_unidad = parseFloat(attr[1].value);
+      total = precio_unidad * cantidad;
+      if (total.toFixed && Math.floor(total*100) >= total*100) total = total.toFixed(2);
+      $($(this).find('td')[3]).text(total);
+      // calculate subtotal
+      var suma = 0;
+      $('##{invoice.to_s}-items tr.item').each(function(index){
+        suma += parseFloat($($(this).find('td')[3]).text());
+      });
+      if(suma.toFixed) suma = suma.toFixed(2);
+      #{ if taxes
+      "$('##{invoice.to_s}-items td.subtotal').text(suma);
+      impuesto = parseFloat($('##{invoice.to_s}-items td.impuesto').prev().text().match(/(\\d+(\\.\\d+)?)%/)[1]);
+      impuesto = suma*impuesto/100.0;
+      if (impuesto.toFixed) impuesto = impuesto.toFixed(2);
+      total = parseFloat(suma) + parseFloat(impuesto);
+      $('##{invoice.to_s}-items td.impuesto').text(impuesto);
+      $('##{invoice.to_s}-items td.total').text(total);"
+      else
+        "$('##{invoice.to_s}-items td.total').text(suma);"
+      end}
+    });
+    // delete event
+    $('.item_delete').live('click', function(){
+      if (typeof($(this).attr('delete_item_id')) != 'undefined'){
+        deleted=$.parseJSON($("#deleted_items").attr('value'));
+        deleted.push(this.getAttribute('delete_item_id'));
+        $("#deleted_items").attr("value", JSON.stringify(deleted));
+        $(this).parent().parent().nextAll("input[type=hidden]").first().remove();
+      }
+      $(this).parent().parent().remove();
+    });
+  });
+- @invoice ||= eval "@#{invoice}"
+- if @invoice.errors.any?
+  #error_explanation.error
+    %h2
+      = "#{pluralize(@invoice.errors.count, "error")} prohibited this #{invoice} from being saved:"
+    %ul
+      - @invoice.errors.full_messages.each do |msg|
+        %li
+          =msg 
+= form_for(@invoice) do |f|
+  %input#deleted_items{:type => 'hidden', :name =>'deleted[items]',:value => "[]"}
+  -haml_tag "##{invoice}-header" do
+    #msm-data
+      -haml_tag "##{invoice}-logo"
+      -haml_tag "##{invoice}-info" do
+        %ul
+          - invoice.to_s.classify.constantize::MSM_INFO.each do |info|
+            %li
+              =info
+    -haml_tag "##{invoice}-header-data" do
+      -haml_tag "table.#{invoice}-table" do
+        %tr
+          %th Número
+          %td
+            =f.text_field :number, :size => 10
+        %tr
+          %th Fecha
+          %td 
+            = text_field_tag :fecha, nil, :size => 10
+            = f.hidden_field :created_at
+    -haml_tag "##{invoice}-cliente" do
+      %h3 Cliente
+      = f.fields_for :cliente, (@invoice.cliente || Cliente.new) do |client_fields|
+        -haml_tag "table.#{invoice}-table" do
+          - [:nombre, :apellidos, :direccion, :ciudad, :provincia, :codigo_postal, :telefono].each do |field|
+            %tr
+              %th
+                =field.to_s.humanize.capitalize
+              %td
+                = client_fields.text_field field
+          %tr
+            %th N.I.F.
+            %td
+              = client_fields.text_field :nif
+  -haml_tag "##{invoice}-detail" do
+    -haml_tag "##{invoice}-items" do
+      %h3 Detalle
+      -haml_tag "table.#{invoice}-table" do
+        %tr
+          %th Cantidad
+          %th Precio Unidad
+          %th Descripcion
+          %th Precio Total
+          %td.options
+        = f.fields_for :items, (@invoice.items) do |item_fields|
+          %tr.item
+            %td
+              = item_fields.text_field :cantidad, :size => 3
+            %td
+              = item_fields.text_field :precio_unidad, :size => 5
+            %td
+              = item_fields.text_area :description, :rows => 3
+            %td
+              = item_fields.object.total
+            %td.options
+              %a.item_delete{:delete_item_id => item_fields.object.id}
+        %tr.blocked
+          %td{:colspan => 4}
+            = link_to 'Añadir Nuevo', nil, :id => 'new_item'
+        - if taxes
+          %tr
+            %td.ghost-cell
+            %td.ghost-cell
+            %td.ghost-cell.left-annotation Subtotal
+            %td.subtotal
+              = @invoice.subtotal
+            %td.options
+          %tr
+            %td.ghost-cell
+            %td.ghost-cell
+            %td.ghost-cell.left-annotation Impuesto (#{@invoice.impuesto}%)
+            %td.impuesto
+              = @invoice.impuesto_subtotal
+            %td.options
+        %tr
+          %td.ghost-cell
+          %td.ghost-cell
+          %td.ghost-cell.left-annotation Total
+          %td.total
+            = @invoice.total
+          %td.options
+      .actions
+        = f.submit

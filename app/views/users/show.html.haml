@@ -1,0 +1,23 @@
+#home
+  %ul#menu
+    %li#facturas
+      = link_to 'Facturas', facturas_path
+      %ul#factura_options
+        %li
+          = link_to 'Nueva', new_factura_path, :id => 'new_factura'
+        %li
+          = link_to 'Ver', facturas_path, :id => 'index_factura'
+    %li#presupuestos
+      = link_to 'Presupuestos', presupuestos_path
+      %ul#presupuesto_options
+        %li
+          = link_to 'Nuevo', new_presupuesto_path, :id => 'new_presupuesto'
+        %li
+          = link_to 'Ver', presupuestos_path, :id => 'index_presupuesto'
+    %li#albarans
+      = link_to 'Albaranes', albarans_path
+      %ul#albarans_options
+        %li
+          = link_to 'Nuevo', new_albaran_path, :id => 'new_albaran'
+        %li
+          = link_to 'Ver', albarans_path, :id => 'index_albaran'

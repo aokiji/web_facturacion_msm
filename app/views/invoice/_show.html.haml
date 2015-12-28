@@ -1,0 +1,77 @@
+- title||=nil
+- taxes = true if taxes.nil?
+- @invoice = eval "@#{invoice}"
+- if notice
+  %p#notice.notice
+    = notice
+-haml_tag "##{invoice}" do
+  %h1= title || invoice.to_s.humanize.constantize
+  -haml_tag "##{invoice}-header" do
+    -haml_tag "##{invoice}-logo"
+    -haml_tag "##{invoice}-info" do
+      %ul
+        - invoice.to_s.classify.constantize::MSM_INFO.each do |info|
+          %li
+            =info
+    -haml_tag "##{invoice}-cliente" do
+      %h3 Cliente
+      -haml_tag "table.#{invoice}-table" do
+        - @invoice.cliente.sorted_non_empty_attr.each do |x, y|
+          %tr
+            %th
+              = x.humanize.capitalize
+            %td
+              = y
+    -haml_tag "##{invoice}-header-data" do
+      -haml_tag "table.#{invoice}-table" do
+        %tr
+          %th Número
+          %td
+            =@invoice.number
+        %tr
+          %th Fecha
+          %td 
+            =l @invoice.created_at
+  -haml_tag "##{invoice}-detail" do
+    -haml_tag "##{invoice}-items" do
+      %h3 Detalle
+      -haml_tag "table.#{invoice}-table" do
+        %tr
+          %th Cantidad
+          %th Precio Unidad
+          %th Descripcion
+          %th Precio Total
+        - @invoice.items.each do |item|
+          %tr
+            %td
+              = item.cantidad
+            %td
+              = item.precio_unidad
+            %td
+              = item.description.gsub("\n", "<br/>").html_safe unless item.description.nil?
+            %td
+              = item.cantidad*item.precio_unidad
+        - if taxes
+          %tr
+            %td.ghost-cell
+            %td.ghost-cell
+            %td.ghost-cell.left-annotation Subtotal
+            %td
+              = @invoice.subtotal
+          %tr
+            %td.ghost-cell
+            %td.ghost-cell
+            %td.ghost-cell.left-annotation Impuesto (#{@invoice.impuesto}%)
+            %td
+              = @invoice.impuesto_subtotal
+        %tr
+          %td.ghost-cell
+          %td.ghost-cell
+          %td.ghost-cell.left-annotation Total
+          %td
+            = @invoice.total
+= link_to 'PDF', (eval "#{invoice}_path(@invoice, :format => :pdf)")
+|
+= link_to 'Editar', (eval "edit_#{invoice}_path(@invoice)")
+|
+= link_to 'Facturas', (eval "#{invoice.to_s.pluralize}_path")
