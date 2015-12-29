@@ -39,10 +39,10 @@ end
 # right BB
 p_pdf.move_up(bb1.height)
 bb2=p_pdf.bounding_box [bb1_width, p_pdf.cursor], :width => bb2_width do
-  p_pdf.image Rails.root.join('public', 'images', 'msm.logo80x270.jpg'), :width => 130
+  p_pdf.image Rails.root.join('public', 'images', 'msm.logo.jpg'), :width => 160
   p_pdf.move_down(20)
   p_pdf.fill_color "333333"
-  p_pdf.bounding_box [0, p_pdf.cursor], :width => 130 do
+  p_pdf.bounding_box [0, p_pdf.cursor], :width => 160 do
     invoice.to_s.classify.constantize::MSM_INFO.each do |text|
       p_pdf.text text, :size => 8, :style => :bold, :align => :center
     end

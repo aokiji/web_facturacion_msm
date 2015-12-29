@@ -9,6 +9,7 @@
     = javascript_include_tag :defaults
     = yield :javascript
     = csrf_meta_tag
+    %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
 
 %body.bp
   .container
