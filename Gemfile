@@ -10,7 +10,8 @@ group :assets do
 end
 
 gem 'compass'
-gem 'mysql'
+gem 'mysql2'
+gem 'activerecord-mysql2-adapter'
 #gem 'rubyzip'
 #gem 'nokogiri'
 #gem 'hpricot'

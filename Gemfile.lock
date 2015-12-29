@@ -24,6 +24,8 @@ GEM
       activesupport (= 3.0.3)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
+    activerecord-mysql2-adapter (0.0.3)
+      mysql2
     activeresource (3.0.3)
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
@@ -54,7 +56,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
-    mysql (2.8.1)
+    mysql2 (0.4.2)
     polyglot (0.3.3)
     prawn (0.8.4)
       prawn-core (>= 0.8.4, < 0.9)
@@ -93,12 +95,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-mysql2-adapter
   authlogic
   compass
   compass-rails
   haml
   jquery-rails
-  mysql
+  mysql2
   prawn (= 0.8.4)
   rack (= 1.2.1)
   rails (= 3.0.3)
