@@ -12,7 +12,7 @@ class Albaran < ActiveRecord::Base
   after_initialize :set_default_values
   
   IMPUESTO = GlobalConfiguration.impuesto
-  MSM_INFO = [ "Carretera del Morche 100", "El Morche , Malaga  29793", "Tel. 952968184, Fax 952968184", "VICTOR HUGO DE LOS SANTOS FORNI", "N.I.F. 54234379-B"]
+  MSM_INFO = [ "Carretera del Morche 200", "El Morche , Malaga  29793", "Tel. 952968184, Fax 952968184", "VICTOR HUGO DE LOS SANTOS FORNI", "N.I.F. 54234379-B"]
   
   private
   def set_default_values
