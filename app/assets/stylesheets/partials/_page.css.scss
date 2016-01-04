@@ -1,5 +1,9 @@
 // Import the non-default scaffolding module to help us get started.
 @import "blueprint/scaffolding";
+@import "blueprint/typography";
+@import "blueprint/utilities";
+@import "blueprint/debug";
+@import "blueprint/interaction";
 
 // This configuration will only apply the
 // blueprint styles to pages with a body class of "bp"

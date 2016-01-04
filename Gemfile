@@ -11,7 +11,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-gem 'compass-rails'
+gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
+gem 'compass-blueprint'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
