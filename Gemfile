@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 
 gem 'compass-rails'
-gem 'compass'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'

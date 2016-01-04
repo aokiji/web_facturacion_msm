@@ -202,7 +202,6 @@ DEPENDENCIES
   authlogic
   byebug
   coffee-rails (~> 4.1.0)
-  compass
   compass-rails
   haml-rails
   jquery-rails
