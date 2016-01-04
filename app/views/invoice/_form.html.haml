@@ -20,7 +20,7 @@
       }
     });
     // calculate live
-    $('##{invoice.to_s}-items tr.item').live('click', function(){
+    $('##{invoice.to_s}-items').on('click', 'tr.item', function(){
       attr = $(this).find('td input');
       cantidad = parseInt(attr[0].value);
       precio_unidad = parseFloat(attr[1].value);
@@ -46,7 +46,7 @@
       end}
     });
     // delete event
-    $('.item_delete').live('click', function(){
+    $('body').on('click', '.item_delete', function(){
       if (typeof($(this).attr('delete_item_id')) != 'undefined'){
         deleted=$.parseJSON($("#deleted_items").attr('value'));
         deleted.push(this.getAttribute('delete_item_id'));

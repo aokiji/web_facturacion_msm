@@ -1,6 +1,5 @@
 - title||= nil
 - taxes= true if taxes.nil?
--# include jquery ui
 :javascript
   $(function() {
     date_input = $( "#fecha" );
@@ -11,7 +10,7 @@
     });
     date_input.datepicker();
     date_input.datepicker( "option", "showAnim", "slideDown" );
-    if (hidden_input.attr('value') === "") { 
+    if (hidden_input.attr('value') === undefined || hidden_input.attr('value') === null) { 
       date_input.datepicker("setDate", new Date());
       hidden_input.attr('value', $.datepicker.formatDate('yy-mm-dd', new Date()));
     }else{
