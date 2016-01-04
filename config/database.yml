@@ -1,14 +1,14 @@
 development:
   adapter: mysql2
-  database: tienda_development
-  username: multiser
+  database: multiser_tienda_dev
+  username: multiser_tienda
   password: password
   pool: 5
   timeout: 5000
 test:
   adapter: mysql2
-  database: tienda_test
-  username: multiser
+  database: multiser_tienda_test
+  username: multiser_tienda
   password: password
   pool: 5
   timeout: 5000

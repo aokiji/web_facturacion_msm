@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -8,64 +9,64 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829145434) do
+ActiveRecord::Schema.define(version: 20120829145434) do
 
-  create_table "albarans", :force => true do |t|
-    t.date    "created_at",                               :null => false
-    t.integer "cliente_id",                               :null => false
-    t.integer "number",                                   :null => false
-    t.decimal "total",      :precision => 8, :scale => 2, :null => false
+  create_table "albarans", force: :cascade do |t|
+    t.date    "created_at",                                   null: false
+    t.integer "cliente_id", limit: 4,                         null: false
+    t.integer "number",     limit: 4,                         null: false
+    t.decimal "total",                precision: 8, scale: 2, null: false
   end
 
-  create_table "clientes", :force => true do |t|
-    t.string "nombre",        :limit => 30
-    t.string "apellidos",     :limit => 50
-    t.string "email",         :limit => 30
-    t.string "telefono",      :limit => 15
-    t.string "direccion",     :limit => 100
-    t.string "ciudad",        :limit => 20
-    t.string "provincia",     :limit => 20
-    t.string "codigo_postal", :limit => 10
-    t.string "nif",           :limit => 20
+  create_table "clientes", force: :cascade do |t|
+    t.string "nombre",        limit: 30
+    t.string "apellidos",     limit: 50
+    t.string "email",         limit: 30
+    t.string "telefono",      limit: 15
+    t.string "direccion",     limit: 100
+    t.string "ciudad",        limit: 20
+    t.string "provincia",     limit: 20
+    t.string "codigo_postal", limit: 10
+    t.string "nif",           limit: 20
   end
 
-  create_table "facturas", :force => true do |t|
-    t.date    "created_at",                               :null => false
-    t.integer "cliente_id",                               :null => false
-    t.integer "number",                                   :null => false
-    t.decimal "subtotal",   :precision => 8, :scale => 2, :null => false
-    t.float   "impuesto",                                 :null => false
+  create_table "facturas", force: :cascade do |t|
+    t.date    "created_at",                                    null: false
+    t.integer "cliente_id", limit: 4,                          null: false
+    t.integer "number",     limit: 4,                          null: false
+    t.decimal "subtotal",              precision: 8, scale: 2, null: false
+    t.float   "impuesto",   limit: 24,                         null: false
   end
 
-  create_table "global_configurations", :force => true do |t|
-    t.string "key"
-    t.string "value"
+  create_table "global_configurations", force: :cascade do |t|
+    t.string "key",   limit: 255
+    t.string "value", limit: 255
   end
 
-  create_table "items", :force => true do |t|
-    t.text    "description"
-    t.integer "cantidad"
-    t.decimal "precio_unidad", :precision => 8, :scale => 2
-    t.integer "order_id"
-    t.string  "order_type"
+  create_table "items", force: :cascade do |t|
+    t.text    "description",   limit: 65535
+    t.integer "cantidad",      limit: 4
+    t.decimal "precio_unidad",               precision: 8, scale: 2
+    t.integer "order_id",      limit: 4
+    t.string  "order_type",    limit: 255
   end
 
-  create_table "presupuestos", :force => true do |t|
-    t.date    "created_at",                               :null => false
-    t.integer "cliente_id",                               :null => false
-    t.integer "number",                                   :null => false
-    t.decimal "subtotal",   :precision => 8, :scale => 2, :null => false
-    t.float   "impuesto",                                 :null => false
+  create_table "presupuestos", force: :cascade do |t|
+    t.date    "created_at",                                    null: false
+    t.integer "cliente_id", limit: 4,                          null: false
+    t.integer "number",     limit: 4,                          null: false
+    t.decimal "subtotal",              precision: 8, scale: 2, null: false
+    t.float   "impuesto",   limit: 24,                         null: false
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "username",          limit: 255
+    t.string   "email",             limit: 255
+    t.string   "crypted_password",  limit: 255
+    t.string   "password_salt",     limit: 255
+    t.string   "persistence_token", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
