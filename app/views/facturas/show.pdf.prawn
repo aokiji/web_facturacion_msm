@@ -1,1 +1,3 @@
-render :partial => 'invoice/show.pdf.prawn', :locals =>{:invoice => :factura, :p_pdf => pdf, :title => %w{F a c t u r a}.join('  ')}
+prawn_document do |pdf|
+    render :partial => 'invoice/show.pdf.prawn', :locals =>{:invoice => :factura, :p_pdf => pdf, :title => %w{F a c t u r a}.join('  ')}
+end

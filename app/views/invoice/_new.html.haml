@@ -1,9 +1,6 @@
 - title||= nil
 - taxes= true if taxes.nil?
 -# include jquery ui
-- content_for :javascript do
-  = javascript_include_tag 'jquery.ui.min'
-  = javascript_include_tag 'jquery.datepicker.es'
 :javascript
   $(function() {
     date_input = $( "#fecha" );
