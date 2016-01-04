@@ -1,7 +1,7 @@
 class Cliente < ActiveRecord::Base
   has_many :facturas, :dependent => :destroy
   
-  validates :email, :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }, :unless => lambda {email.nil? || email.empty?}
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, :unless => lambda {email.nil? || email.empty?}
   validates_with ClienteValidator
   
   ATTR_ORDER = ['nombre', 'apellidos', 'direccion', 'ciudad', 'provincia', 'telefono', 'cif']
