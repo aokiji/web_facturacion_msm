@@ -24,6 +24,15 @@ class FacturasControllerTest < ActionController::TestCase
     assert_equal assigns(:factura).attributes, facturas(:factura_sin_items).attributes
   end
 
+  test "should show factura in pdf format" do
+    get :show, {id: facturas(:factura_sin_items).id, format: 'pdf'}
+    assert_response :success
+    assert_not_nil assigns(:factura)
+    assert_template :show
+    assert_equal assigns(:factura).attributes, facturas(:factura_sin_items).attributes
+    assert_match /application\/pdf/, response.headers['Content-Type']
+  end
+
   test "should get new form" do
     get :new
     assert_response :success

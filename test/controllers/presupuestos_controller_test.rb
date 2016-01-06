@@ -24,6 +24,15 @@ class PresupuestosControllerTest < ActionController::TestCase
     assert_equal assigns(:presupuesto).attributes, presupuestos(:presupuesto_sin_items).attributes
   end
 
+  test "should show presupuesto in pdf format" do
+    get :show, {id: presupuestos(:presupuesto_sin_items).id, format: 'pdf'}
+    assert_response :success
+    assert_not_nil assigns(:presupuesto)
+    assert_template :show
+    assert_equal assigns(:presupuesto).attributes, presupuestos(:presupuesto_sin_items).attributes
+    assert_match /application\/pdf/, response.headers['Content-Type']
+  end
+
   test "should get new form" do
     get :new
     assert_response :success
