@@ -1,0 +1,11 @@
+presupuesto_sin_items:
+  number: 3
+  cliente: cliente2
+  impuesto: 0.21
+  subtotal: 0
+
+presupuesto_con_items:
+  number: 4
+  cliente: cliente2
+  impuesto: 0.21
+  subtotal: 140

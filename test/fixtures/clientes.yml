@@ -7,3 +7,13 @@ cliente1:
   telefono: 66778899
   nif: 12345679N
   codigo_postal: 99999
+
+cliente2:
+  nombre: Cliente2
+  apellidos: Apellido3 Apellido4
+  direccion: Direccion2
+  ciudad: Ciudad2
+  provincia: Provincia2
+  telefono: 66778877
+  nif: 12345684C
+  codigo_postal: 77777

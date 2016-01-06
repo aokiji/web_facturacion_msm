@@ -9,3 +9,21 @@ factura_con_items_item2:
   cantidad: 4
   precio_unidad: 10
   order: factura_con_items(Factura)
+
+presupuesto_con_items_item1:
+  description: Item 1 del presupuesto 2
+  cantidad: 2
+  precio_unidad: 30
+  order: presupuesto_con_items(Presupuesto)
+
+presupuesto_con_items_item2:
+  description: Item 2 del presupuesto 2
+  cantidad: 4
+  precio_unidad: 10
+  order: presupuesto_con_items(Presupuesto)
+
+presupuesto_con_items_item3:
+  description: Item 3 del presupuesto 2
+  cantidad: 2
+  precio_unidad: 20
+  order: presupuesto_con_items(Presupuesto)
