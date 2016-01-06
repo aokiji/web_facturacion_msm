@@ -1,6 +1,6 @@
 class Factura < ActiveRecord::Base
   belongs_to :cliente
-  has_many :items, :as => :order
+  has_many :items, :as => :order, dependent: :destroy
   
   accepts_nested_attributes_for :cliente, :items
   

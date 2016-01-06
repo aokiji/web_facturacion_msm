@@ -90,6 +90,13 @@ class InvoiceController < ApplicationController
   private
 
   def invoice_params
-      params.require(invoice).permit(:number, :created_at, cliente_attributes: [:nombre, :apellidos, :direccion, :ciudad, :provincia, :codigo_postal, :telefono, :nif], items_attributes: [:cantidad, :precio_unidad, :description])
+      cliente_permitted_params = [:nombre, :apellidos, :direccion, :ciudad, :provincia, :codigo_postal, :telefono, :nif]
+      item_permitted_params = [:cantidad, :precio_unidad, :description]
+      base_params = [:number, :created_at, cliente_attributes: cliente_permitted_params, items_attributes: item_permitted_params]
+      if action_name == "update" then
+          params.require(invoice).permit(*base_params, :id, cliente_attributes: cliente_permitted_params + [:id], items_attributes: item_permitted_params + [:id])
+      else
+          params.require(invoice).permit(*base_params)
+      end
   end
 end
