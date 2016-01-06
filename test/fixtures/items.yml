@@ -1,0 +1,11 @@
+factura_con_items_item1:
+  description: Item 1 de la factura 2
+  cantidad: 2
+  precio_unidad: 30
+  order: facturas(factura_con_items)
+
+factura_con_items_item2:
+  description: Item 2 de la factura 2
+  cantidad: 4
+  precio_unidad: 10
+  order: facturas(factura_con_items)

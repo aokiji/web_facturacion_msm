@@ -1,0 +1,11 @@
+factura_sin_items:
+  number: 1
+  cliente: cliente1
+  impuesto: 0.21
+  subtotal: 0
+
+factura_con_items:
+  number: 2
+  cliente: cliente1
+  impuesto: 0.21
+  subtotal: 100

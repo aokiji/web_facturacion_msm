@@ -41,7 +41,7 @@ class InvoiceController < ApplicationController
   # POST /invoices
   # POST /invoices.xml
   def create
-    eval "@#{invoice} = invoice.to_s.classify.constantize.new(params[:#{invoice}])"
+    eval "@#{invoice} = invoice.to_s.classify.constantize.new(invoice_params)"
 
     respond_to do |format|
       if eval "@#{invoice}.save"
@@ -65,7 +65,7 @@ class InvoiceController < ApplicationController
     end
 
     respond_to do |format|
-      if (eval "@#{invoice}.update_attributes(params[:#{invoice}])")
+      if (eval "@#{invoice}.update_attributes(invoice_params)")
         format.html { redirect_to((eval "@#{invoice}"), :notice => "#{invoice.to_s.humanize.capitalize} actualizada correctamente.") }
         format.xml  { head :ok }
       else
@@ -85,5 +85,11 @@ class InvoiceController < ApplicationController
       format.html { redirect_to((eval "#{invoice.to_s.pluralize}_url")) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def invoice_params
+      params.require(invoice).permit(:number, :created_at, cliente_attributes: [:nombre, :apellidos, :direccion, :ciudad, :provincia, :codigo_postal, :telefono, :nif], items_attributes: [:cantidad, :precio_unidad, :description])
   end
 end
