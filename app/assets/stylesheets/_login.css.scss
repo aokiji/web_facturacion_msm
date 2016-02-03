@@ -1,0 +1,66 @@
+body {
+    background: #333333;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+#ico {
+    background: url(icons/ICOserver.svg) no-repeat;
+    width: 20em;
+    height: 20em;
+    margin: auto;
+    margin-top: 12em;
+    margin-bottom: -0.3em;
+}
+#login{
+    margin: auto;
+    text-align: center;
+}
+#login form {
+    display: inline-block;
+    text-align: justify;
+    font-family: miRegular;
+    font-size: 1em;
+    color: white;
+    width: 17em;
+}
+.error h2{
+    font-size: 1.2em;
+    text-align: center;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    background-color: #E1002B;
+}
+.error ul {
+    text-align: center;
+    list-style: none;
+    padding-left: 0;
+    color: #E1002B;
+}
+
+.formfield input{
+    width:99%;
+    margin-top:0.1em;
+    margin-bottom: 0.2em;
+    height: 1.4em;
+    
+}
+.actions {
+    text-align: right;
+}
+.actions input {
+    font-family: miBold;
+    font-size: 1em;
+    border-style: none;
+    background-color: #F7931E;
+    height: 1.6em;
+    margin-top: 0.8em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-bottom: 0.2em;
+}
+.actions input:hover {
+    background-color: #999999;
+    color: white;
+    cursor: pointer;
+}

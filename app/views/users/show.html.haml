@@ -1,23 +1,26 @@
 #home
-  %ul#menu
-    %li#facturas
-      = link_to 'Facturas', facturas_path
-      %ul#factura_options
-        %li
-          = link_to 'Nueva', new_factura_path, :id => 'new_factura'
-        %li
-          = link_to 'Ver', facturas_path, :id => 'index_factura'
-    %li#presupuestos
-      = link_to 'Presupuestos', presupuestos_path
-      %ul#presupuesto_options
-        %li
-          = link_to 'Nuevo', new_presupuesto_path, :id => 'new_presupuesto'
-        %li
-          = link_to 'Ver', presupuestos_path, :id => 'index_presupuesto'
+  #icomenu
+  %ul#menu    
     %li#albarans
-      = link_to 'Albaranes', albarans_path
-      %ul#albarans_options
+      %a{:id => 'menu_albaran', :class => 'menu01'} ALBARÁN
+      %ul{:id => 'albarans_options', :class => 'menu02'}
         %li
-          = link_to 'Nuevo', new_albaran_path, :id => 'new_albaran'
+          = link_to 'NUEVO', new_albaran_path, :id => 'new_albaran'
         %li
-          = link_to 'Ver', albarans_path, :id => 'index_albaran'
+          = link_to 'TODOS', albarans_path, :id => 'index_albaran'
+    %li#facturas
+      %a{:id => 'menu_factura', :class => 'menu01'} FACTURA
+      %ul{:id => 'factura_options', :class => 'menu02'}
+        %li
+          = link_to 'NUEVA', new_factura_path, :id => 'new_factura'
+        %li
+          = link_to 'TODAS', facturas_path, :id => 'index_factura'
+    %li#presupuestos
+      %a{:id => 'menu_presupuesto', :class => 'menu01'} PRESUPUESTO
+      %ul{:id => 'presupuesto_options', :class => 'menu02'}
+        %li
+          = link_to 'NUEVO', new_presupuesto_path, :id => 'new_presupuesto'
+        %li
+          = link_to 'TODOS', presupuestos_path, :id => 'index_presupuesto'
+#homebkg
+  #bkg
