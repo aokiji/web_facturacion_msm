@@ -8,6 +8,31 @@
     = csrf_meta_tag
     %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
 
-  %body.bp
-    .container
-    = yield
+  %body
+    #home
+      #icomenu
+      %ul#menu    
+        %li#albarans
+          %a{:id => 'menu_albaran', :class => 'menu01'} ALBARÁN
+          %ul{:id => 'albarans_options', :class => 'menu02'}
+            %li
+              = link_to 'NUEVO', new_albaran_path, :id => 'new_albaran'
+            %li
+              = link_to 'TODOS', albarans_path, :id => 'index_albaran'
+        %li#facturas
+          %a{:id => 'menu_factura', :class => 'menu01'} FACTURA
+          %ul{:id => 'factura_options', :class => 'menu02'}
+            %li
+              = link_to 'NUEVA', new_factura_path, :id => 'new_factura'
+            %li
+              = link_to 'TODAS', facturas_path, :id => 'index_factura'
+        %li#presupuestos
+          %a{:id => 'menu_presupuesto', :class => 'menu01'} PRESUPUESTO
+          %ul{:id => 'presupuesto_options', :class => 'menu02'}
+            %li
+              = link_to 'NUEVO', new_presupuesto_path, :id => 'new_presupuesto'
+            %li
+              = link_to 'TODOS', presupuestos_path, :id => 'index_presupuesto'
+    #homebkg
+      #bkg
+        = yield
