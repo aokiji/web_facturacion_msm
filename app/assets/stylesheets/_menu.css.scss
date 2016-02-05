@@ -53,7 +53,7 @@ a {
     height: calc(100% - 8.2em);
     overflow: hidden;
 }
-#menu_albaran, #new_albaran, #index_albaran, #menu_factura, #new_factura, #index_factura, #menu_presupuesto, #new_presupuesto, #index_presupuesto {
+#menu_albaran, #new_alb, #index_albaran, #menu_factura, #new_fact, #index_factura, #menu_presupuesto, #new_pres, #index_presupuesto {
     display: block;   
     padding-bottom: 0.4em;
     font-size: 0.9em;
@@ -79,7 +79,7 @@ a {
 #menu_albaran, #menu_factura {
     margin-top: 1em;
 }
-#new_albaran, #new_factura, #new_presupuesto {
+#new_alb, #new_fact, #new_pres {
     background: url(icons/ICOnuevo.svg) no-repeat top;
     background-size: 35% 88%;
     padding-top: 4.3em;    
@@ -115,7 +115,7 @@ a {
     color: white;
     cursor: pointer;
 }
-#new_albaran:hover, #new_factura:hover, #new_presupuesto:hover {
+#new_alb:hover, #new_fact:hover, #new_pres:hover {
     background: url(icons/ICOnuevo_hover.svg) no-repeat top;
     background-size: 35% 88%;
     padding-top: 4.3em;   
