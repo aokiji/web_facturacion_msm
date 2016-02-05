@@ -11,31 +11,32 @@ a {
     font-family: miBold;
     text-decoration: none;
     color: #CCCCCC;
-    width: 8em;
+    width: 7.5em;
 }
 #homebkg { 
-    width: 100%;
+    float: right;
+    width: calc(100% - 7.5em);
     height: 100%;
     background-color: #F2F2F2;
 }
 #bkg {
     background: url(icons/ICObkg.svg) no-repeat center;
-    height: 85%;
+    height: 90%;
     width: 100%;
     max-width: 35em;
-    margin: auto; 
+    margin: auto;     
 }
 #home {
     float: left;
     height: 100%;
     background-color: #333333;
-    width: 8em;
+    width: 7.5em;
 }
 #icomenu {
     background: url(icons/ICOserver.svg) no-repeat;
     background-size: 98% 90%;
     margin-top: 0.5em;
-    height: 12%;
+    height: 7.5em;
     border-bottom: 0.05em solid #CCCCCC;
 }
 #menu, #albarans_options, #factura_options, #presupuesto_options {
@@ -49,30 +50,31 @@ a {
     display: none;    
 }
 #menu {
-    height: 87%;
+    height: calc(100% - 8.2em);
     overflow: hidden;
 }
 #menu_albaran, #new_albaran, #index_albaran, #menu_factura, #new_factura, #index_factura, #menu_presupuesto, #new_presupuesto, #index_presupuesto {
-    display: block;
-    padding-top: 70%;
-    padding-bottom: 8%;
-    
+    display: block;   
+    padding-bottom: 0.4em;
+    font-size: 0.9em;
+    margin: auto;    
 }
 #menu_albaran {
     background: url(icons/ICOalbaran.svg) no-repeat top;
     background-size: 50% 80%; 
+    padding-top: 5em;
 }
 
 #menu_factura {
     background: url(icons/ICOfactura.svg) no-repeat top;
-    background-size:54% 80%;
+    background-size:52% 80%;
+    padding-top: 4.7em;
 }
 #menu_presupuesto {
     background: url(icons/ICOpresup.svg) no-repeat top;
     background-size:50% 90%; 
-    margin-top: 0.2em;
-    font-size: 0.9em;
-    margin: auto;
+    margin-top: 0.5em;
+    padding-top: 5em;
 }
 #menu_albaran, #menu_factura {
     margin-top: 1em;
@@ -80,15 +82,15 @@ a {
 #new_albaran, #new_factura, #new_presupuesto {
     background: url(icons/ICOnuevo.svg) no-repeat top;
     background-size: 35% 88%;
-    padding-top: 50%;    
-    font-size: 0.9em;
+    padding-top: 4.3em;    
+    font-size: 0.8em;
     width: 100%;
 }
 #index_albaran, #index_factura, #index_presupuesto {
     background: url(icons/ICOtodos.svg) no-repeat top;
     background-size: 40% 88%;
-    padding-top: 50%;
-    font-size: 0.9em;
+    padding-top: 4.3em;
+    font-size: 0.8em;
     width: 100%;
 }
 
@@ -103,7 +105,7 @@ a {
 }
 #menu_factura:hover {
     background: url(icons/ICOfactura_hover.svg) no-repeat top;
-    background-size:54% 80%;
+    background-size:52% 80%;
     color: white;
     cursor: pointer;
 }
@@ -115,15 +117,15 @@ a {
 }
 #new_albaran:hover, #new_factura:hover, #new_presupuesto:hover {
     background: url(icons/ICOnuevo_hover.svg) no-repeat top;
-    background-size: 40% 88%;
-    padding-top: 50%;    
+    background-size: 35% 88%;
+    padding-top: 4.3em;   
     color: #333333;
     background-color: #F7931E;
 }
 #index_albaran:hover, #index_factura:hover, #index_presupuesto:hover {
     background: url(icons/ICOtodos_hover.svg) no-repeat top;
-    background-size: 45% 88%;
-    padding-top: 50%;
+    background-size: 40% 88%;
+    padding-top: 4.3em;
     color: #333333;
     background-color: #F7931E;
 }
