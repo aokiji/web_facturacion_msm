@@ -17,14 +17,16 @@ a {
     float: right;
     width: calc(100% - 7.5em);
     height: 100%;
-    background-color: #F2F2F2;
+    background-color: white;
+    overflow: scroll;
 }
 #bkg {
     background: url(icons/ICObkg.svg) no-repeat center;
+    background-size: 60%;
     height: 90%;
-    width: 100%;
-    max-width: 35em;
-    margin: auto;     
+    width: 70%;    
+    margin: auto;  
+    
 }
 #home {
     float: left;
