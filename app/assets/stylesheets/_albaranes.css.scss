@@ -1,3 +1,7 @@
+#albaran {
+    max-width: 55em;
+    margin: auto;
+}
 #albaran h1 {
     font-family: miRegular;
     text-align: center;
@@ -53,10 +57,19 @@ input {
     width: 12em;
 }
 #new_item{
-    display: block;
+    display: flex;
     color: #4D4D4D;
-    margin:auto;
+    margin: auto;
     padding: 0.5em;
+    width: 9em;
+    line-height: 1.5em;
+}
+#new_item:before {
+    content: "";
+    background: url(icons/ICOnuevo_pequeno.svg) no-repeat;
+    background-size: 100%;
+    width: 1.5em;
+    height: 1.5em;
 }
 .ghost-cell {
     border: none;
@@ -81,4 +94,8 @@ input {
 }
 .options {
     border: 1px white solid;
+}
+.actions {
+    text-align: center;
+    padding-bottom: 3em;
 }
