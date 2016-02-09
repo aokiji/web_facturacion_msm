@@ -23,12 +23,13 @@
     margin-top: 2em;
     margin-bottom: 1em;
     margin-left: 1em;
+    width: 36%;
 }
 #albaran-logo, #factura-logo, #presupuesto-logo {
     background: url(icons/logo02.svg) no-repeat;    
     background-size: contain;
-    background-position: right;
-    height: 9.5em;
+    background-position: bottom;
+    height: 9em;
 }
 #albaran-info ul, #factura-info ul, #presupuesto-info ul {    
     text-align: center;
@@ -55,11 +56,18 @@ input {
     height: 1.7em;    
     border-style: none;    
 }
+#albaran-cliente {
+    width: 60%;
+}
 #albaran-header-data input, #factura-header input, #presupuesto-header input, .fechacliente td{
     width: 13em;
 }
-#albaran-cliente input, #factura-cliente input, #presupuesto-cliente input, .nuevocliente td {
-    width: 25em;
+#albaran-cliente th, #factura-cliente th, #presupuesto-cliente th {
+    min-width: 7em;
+}
+#albaran-cliente input, #factura-cliente input, #presupuesto-cliente input, #albaran-cliente td, #factura-cliente td, #presupuesto-cliente td, .nuevocliente td {
+    width: 90%;
+    max-width: 25em;
 }
 #albaran-detail th, #factura-detail th, #presupuesto-detail th {
     width: 12em;
@@ -154,6 +162,7 @@ input {
     margin-top: 2em;
     text-align: right;
     margin-right: 0.5em;
+    margin-bottom: 2em;
 }
 .piepagina a:hover {
     color: #333333;    
@@ -171,7 +180,7 @@ input {
 .todos table {    
     margin: auto; 
     margin-top: 2em;
-    min-width: 55em;
+    width: 100%;
 }
 .todos td {
     padding: 0.5em;

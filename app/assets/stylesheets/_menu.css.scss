@@ -41,12 +41,10 @@ a {
     border-bottom: 0.05em solid #CCCCCC;
 }
 #logout {
-    display: block;
     background: url(icons/ICOlogout.svg) no-repeat bottom;
     background-size: 100% 80%;
     height: 4em;
-    margin-bottom: 1em;
-    color: transparent;
+    margin-bottom: 2em;
 }
 #menu, #albarans_options, #factura_options, #presupuesto_options {
     list-style: none;
@@ -59,7 +57,7 @@ a {
     display: none;    
 }
 #menu {
-    height: calc(100% - 13.2em);
+    height: calc(100% - 14.2em);
     overflow: hidden;
 }
 #menu_albaran, #new_alb, #index_albaran, #menu_factura, #new_fact, #index_factura, #menu_presupuesto, #new_pres, #index_presupuesto {
