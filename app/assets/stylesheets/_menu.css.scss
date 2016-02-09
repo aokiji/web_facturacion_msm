@@ -25,8 +25,7 @@ a {
     background-size: 60%;
     height: 90%;
     width: 70%;    
-    margin: auto;  
-    
+    margin: auto;      
 }
 #home {
     float: left;
@@ -41,6 +40,12 @@ a {
     height: 7.5em;
     border-bottom: 0.05em solid #CCCCCC;
 }
+#logout {
+    background: url(icons/ICOlogout.svg) no-repeat bottom;
+    background-size: 100% 80%;
+    height: 4em;
+    margin-bottom: 1em;
+}
 #menu, #albarans_options, #factura_options, #presupuesto_options {
     list-style: none;
     padding-left: 0;
@@ -52,7 +57,7 @@ a {
     display: none;    
 }
 #menu {
-    height: calc(100% - 8.2em);
+    height: calc(100% - 13.2em);
     overflow: hidden;
 }
 #menu_albaran, #new_alb, #index_albaran, #menu_factura, #new_fact, #index_factura, #menu_presupuesto, #new_pres, #index_presupuesto {
@@ -130,4 +135,11 @@ a {
     padding-top: 4.3em;
     color: #333333;
     background-color: #F7931E;
+}
+#logout:hover {
+    background: url(icons/ICOlogout_hover.svg) no-repeat bottom;
+    background-size: 100% 80%;
+    height: 4em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
 }
