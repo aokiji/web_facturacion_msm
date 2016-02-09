@@ -41,10 +41,12 @@ a {
     border-bottom: 0.05em solid #CCCCCC;
 }
 #logout {
+    display: block;
     background: url(icons/ICOlogout.svg) no-repeat bottom;
     background-size: 100% 80%;
     height: 4em;
     margin-bottom: 2em;
+    color: transparent;
 }
 #menu, #albarans_options, #factura_options, #presupuesto_options {
     list-style: none;
