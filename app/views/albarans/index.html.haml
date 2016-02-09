@@ -7,32 +7,31 @@
     });
    });
   
-%h1 Listado de Albaranes
+#albaran  
+  %h1 Listado de Albaranes
+  .todos
+    %table
+      %tr
+        %th Numero
+        %th Fecha
+        %th Cliente
+        %th{:class => 'todos_menu'}
+        %th{:class => 'todos_menu'}
+        %th{:class => 'todos_menu'}
 
-%table
-  %tr
-    %th Numero
-    %th Fecha
-    %th Cliente
-    %th
-    %th
-    %th
-
-  - @albarans.each do |albaran|
-    %tr
-      %td
-        = albaran.number
-      %td.date
-        = albaran.created_at
-      %td
-        = albaran.cliente
-      %td 
-        = link_to 'Ver', albaran
-      %td 
-        = link_to 'Editar', edit_albaran_path(albaran)
-      %td 
-        = link_to 'Eliminar', albaran, :confirm => '¿Estas seguro?', :method => :delete
-
-%br
-
-= link_to 'Nuevo Albaran', new_albaran_path
+      - @albarans.each do |albaran|
+        %tr
+          %td
+            = albaran.number
+          %td.date
+            = albaran.created_at
+          %td
+            = albaran.cliente
+          %td{:class => 'todos_menu'}
+            = link_to 'Ver', albaran
+          %td{:class => 'todos_menu'}
+            = link_to 'Editar', edit_albaran_path(albaran)
+          %td{:class => 'todos_menu'}
+            = link_to 'Eliminar', albaran, :confirm => '¿Estas seguro?', :method => :delete
+  .piepagina
+    = link_to 'Nuevo Albaran', new_albaran_path

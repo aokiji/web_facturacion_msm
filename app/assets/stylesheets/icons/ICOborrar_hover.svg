@@ -3,14 +3,14 @@
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-459 260.7 40.4 40.3" style="enable-background:new -459 260.7 40.4 40.3;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#4D4D4D;}
+	.st0{fill:#F7931E;}
 	.st1{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
 <g>
 	<circle class="st0" cx="-438.8" cy="280.9" r="16.4"/>
 	<g id="XMLID_579_">
-		<line id="XMLID_582_" class="st1" x1="-438.8" y1="271.9" x2="-438.8" y2="289.8"/>
-		<line id="XMLID_580_" class="st1" x1="-429.8" y1="280.9" x2="-447.8" y2="280.9"/>
+		<line id="XMLID_582_" class="st1" x1="-432.4" y1="274.5" x2="-445.2" y2="287.2"/>
+		<line id="XMLID_580_" class="st1" x1="-432.4" y1="287.2" x2="-445.2" y2="274.5"/>
 	</g>
 </g>
 </svg>

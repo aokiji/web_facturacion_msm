@@ -23,6 +23,7 @@
   %h1= title || "Editando #{invoice} #{@invoice.number}"
   = render :partial => 'invoice/form', :locals => {:invoice => invoice, :taxes => taxes}
 #footer
-  = link_to 'Ver', @invoice
-  |
-  = link_to invoice.to_s.humanize.capitalize.pluralize, (eval "#{invoice.to_s.pluralize}_path")
+  .piepagina     
+    = link_to 'Ver', @invoice
+    |
+    = link_to invoice.to_s.humanize.capitalize.pluralize, (eval "#{invoice.to_s.pluralize}_path")

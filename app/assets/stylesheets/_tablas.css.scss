@@ -1,0 +1,189 @@
+#albaran, #factura, #presupuesto {
+    max-width: 55em;    
+    background-color:white;
+    min-height:70%;
+    margin: auto;
+}
+#albaran h1, #factura h1, #presupuesto h1 {
+    font-family: miRegular;
+    text-align: center;
+    background-color: #333333;
+    color: white;
+    margin: 0;
+    margin-bottom: 0.5em;
+    padding: 0.2em;
+}
+#bkg {
+    font-family: miRegular;
+    margin-top: 2em;
+    margin: 0 auto;
+}
+#msm-data {
+    float: right;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+#albaran-logo, #factura-logo, #presupuesto-logo {
+    background: url(icons/logo02.svg) no-repeat;    
+    background-size: contain;
+    background-position: right;
+    height: 9.5em;
+}
+#albaran-info ul, #factura-info ul, #presupuesto-info ul {    
+    text-align: center;
+    list-style-type: none;
+    margin: auto;
+    padding-left: 0;
+}
+table, td, th{
+    border: 0.1em solid black;
+    border-collapse: collapse;
+}
+th{
+    color: white;
+    background-color: #4D4D4D;
+    text-align: left;
+    padding-right: 0.5em;
+    min-width: 5em;
+    height: 1.5em;
+}
+th, td {
+    padding-left: 0.5em;
+}
+input {
+    height: 1.7em;    
+    border-style: none;    
+}
+#albaran-header-data input, #factura-header input, #presupuesto-header input, .fechacliente td{
+    width: 13em;
+}
+#albaran-cliente input, #factura-cliente input, #presupuesto-cliente input, .nuevocliente td {
+    width: 25em;
+}
+#albaran-detail th, #factura-detail th, #presupuesto-detail th {
+    width: 12em;
+    text-align: center;
+}
+#albaran-detail td, #factura-detail td, #presupuesto-detail td {
+    text-align: center;
+}
+#new_item{
+    display: flex;
+    color: #4D4D4D;
+    margin: auto;
+    padding: 0.5em;
+    width: 9em;
+    line-height: 1.5em;
+}
+#new_item:before {
+    content: "";
+    background: url(icons/ICOnuevo_pequeno.svg) no-repeat;
+    background-size: 100%;
+    width: 1.5em;
+    height: 1.5em;
+}
+#new_item:hover:before {
+    content: "";
+    background: url(icons/ICOnuevo_pequeno_hover.svg) no-repeat;
+    background-size: 100%;
+    width: 1.5em;
+    height: 1.5em;
+}
+.ghost-cell {
+    border: 1px solid white;;
+    text-align: right;
+    padding-right: 1em;
+}
+.ghost-cell:nth-child(3) {
+    border-right: 1px solid black;
+}
+.total {
+    padding-left: 1em;
+    background-color: white;
+}
+.item td {
+    background-color: white;
+}
+.item td textarea {
+    border-style: none;
+}
+.item_delete {
+    background: url(icons/ICOborrar.svg);
+    width: 1.5em; 
+    height: 1.5em;
+    display: block;
+}
+.item_delete:hover {
+    background: url(icons/ICOborrar_hover.svg);
+    width: 1.5em; 
+    height: 1.5em;
+    display: block;
+    cursor: pointer;
+}
+.options {
+    border: 1px white solid;
+}
+.actions {
+    text-align: center;
+    padding-bottom: 3em;
+}
+.blocked {
+    border-right: 1px solid white;
+}
+
+
+/*---- nuevo -----*/
+.notice {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 0 auto;   
+    color: #20e071;
+    line-height: 2.2em;
+}
+.notice:before {
+    content:"";
+    background: url(icons/ICOok.svg) no-repeat;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+.piepagina {
+    max-width: 55em;
+    margin: auto;
+    margin-top: 2em;
+    text-align: right;
+    margin-right: 0.5em;
+}
+.piepagina a:hover {
+    color: #333333;    
+}
+.nuevosdetalles {
+    clear: both;
+}
+.nuevosdetalles td {
+    padding: 0.8em;
+}
+.nuevosdetalles table {
+    width: 100%;
+}
+/*--- todos ---*/
+.todos table {    
+    margin: auto; 
+    margin-top: 2em;
+    min-width: 55em;
+}
+.todos td {
+    padding: 0.5em;
+}
+.todos table th:nth-child(3), .todos table td:nth-child(3) {
+    border-right: none;
+    padding-right: 2em;
+}
+.todos_menu {
+    border-left: none; 
+    border-right: none;
+}
+.todos_menu a:hover {
+    color: #4D4D4D;
+}
