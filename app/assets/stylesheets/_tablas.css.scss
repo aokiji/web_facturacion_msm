@@ -167,9 +167,12 @@ input {
     max-width: 55em;
     margin: auto;
     margin-top: 2em;
-    text-align: right;
+    text-align: right;    
     margin-right: 0.5em;
     margin-bottom: 2em;
+}
+.piepagina a{
+    color: #F7931E;
 }
 .piepagina a:hover {
     color: #333333;    
@@ -188,6 +191,7 @@ input {
     margin: auto; 
     margin-top: 2em;
     width: 100%;
+    
 }
 .todos td {
     padding: 0.5em;
@@ -196,10 +200,17 @@ input {
     border-right: none;
     padding-right: 2em;
 }
+.todos table th:nth-child(4), .todos table th:nth-child(5), .todos table th:nth-child(6), .todos table td:nth-child(4), .todos table td:nth-child(5), .todos table td:nth-child(6) {
+    clear: both;
+    min-width: 4em;
+}
 .todos_menu {
     border-left: none; 
     border-right: none;
 }
-.todos_menu a:hover {
+.todos_menu a {
     color: #4D4D4D;
+}
+.todos_menu a:hover {
+    color: #F7931E;
 }
