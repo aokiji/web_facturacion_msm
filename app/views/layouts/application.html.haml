@@ -13,21 +13,21 @@
       #icomenu
       %ul#menu    
         %li#albarans
-          %a{:id => 'menu_albaran', :class => 'menu01'} ALBARÁN
+          = nav_button_for :albarans, 'ALBARÁN', {:id => 'menu_albaran'}
           %ul{:id => 'albarans_options', :class => 'menu02'}
             %li
               = link_to 'NUEVO', new_albaran_path, :id => 'new_alb'
             %li
               = link_to 'TODOS', albarans_path, :id => 'index_albaran'
         %li#facturas
-          %a{:id => 'menu_factura', :class => 'menu01'} FACTURA
+          = nav_button_for :facturas, 'FACTURA', {:id => 'menu_factura'}
           %ul{:id => 'factura_options', :class => 'menu02'}
             %li
               = link_to 'NUEVA', new_factura_path, :id => 'new_fact'
             %li
               = link_to 'TODAS', facturas_path, :id => 'index_factura'
         %li#presupuestos
-          %a{:id => 'menu_presupuesto', :class => 'menu01'} PRESUPUESTO
+          = nav_button_for :presupuestos, 'PRESUPUESTO', {:id => 'menu_presupuesto'}
           %ul{:id => 'presupuesto_options', :class => 'menu02'}
             %li
               = link_to 'NUEVO', new_presupuesto_path, :id => 'new_pres'
