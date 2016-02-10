@@ -47,8 +47,8 @@ th{
     background-color: #4D4D4D;
     text-align: left;
     padding-right: 0.5em;
-    min-width: 5em;
-    height: 1.5em;
+    min-width: 6em;
+    height: 1.7em;
 }
 th, td {
     padding-left: 0.5em;
@@ -64,7 +64,7 @@ input {
     width: 13em;
 }
 #albaran-cliente th, #factura-cliente th, #presupuesto-cliente th {
-    min-width: 7em;
+    min-width: 8em;
 }
 #albaran-cliente input, #factura-cliente input, #presupuesto-cliente input, #albaran-cliente td, #factura-cliente td, #presupuesto-cliente td, .nuevocliente td {
     width: 90%;
