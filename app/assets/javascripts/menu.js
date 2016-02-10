@@ -5,7 +5,7 @@ function initialize_menu(){
        }
        $(this).next().slideToggle("normal");
    });
-   $(".menu01.active").click();
+   $(".menu01.active").next().slideToggle(0);
 }
 $(document).ready(initialize_menu);
 $(document).on('page:load', initialize_menu);
