@@ -74,6 +74,12 @@ input {
     width: 12em;
     text-align: center;
 }
+#albaran-detail td:nth-child(3), #factura-detail th:nth-child(3), #presupuesto-detail th:nth-child(3) {
+    min-width: 15em;
+}
+#albaran-detail textarea, #factura-detail textarea, #presupuesto-detail textarea {
+    width: 95%;
+}
 #albaran-detail td, #factura-detail td, #presupuesto-detail td {
     text-align: center;
 }
