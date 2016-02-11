@@ -28,7 +28,7 @@
     width: 36%;
 }
 #albaran-logo, #factura-logo, #presupuesto-logo {
-    background: url(icons/logo02.svg) no-repeat;    
+    background: url(asset-path('icons/logo02.svg')) no-repeat;    
     background-size: contain;
     background-position: bottom;
     height: 9em;
@@ -94,14 +94,14 @@ input {
 }
 #new_item:before {
     content: "";
-    background: url(icons/ICOnuevo_pequeno.svg) no-repeat;
+    background: url(asset-path('icons/ICOnuevo_pequeno.svg')) no-repeat;
     background-size: 100%;
     width: 1.5em;
     height: 1.5em;
 }
 #new_item:hover:before {
     content: "";
-    background: url(icons/ICOnuevo_pequeno_hover.svg) no-repeat;
+    background: url(asset-path('icons/ICOnuevo_pequeno_hover.svg')) no-repeat;
     background-size: 100%;
     width: 1.5em;
     height: 1.5em;
@@ -125,13 +125,13 @@ input {
     border-style: none;
 }
 .item_delete {
-    background: url(icons/ICOborrar.svg);
+    background: url(asset-path('icons/ICOborrar.svg'));
     width: 1.5em; 
     height: 1.5em;
     display: block;
 }
 .item_delete:hover {
-    background: url(icons/ICOborrar_hover.svg);
+    background: url(asset-path('icons/ICOborrar_hover.svg'));
     width: 1.5em; 
     height: 1.5em;
     display: block;
@@ -159,7 +159,7 @@ input {
 }
 .notice:before {
     content:"";
-    background: url(icons/ICOok.svg) no-repeat;
+    background: url(asset-path('icons/ICOok.svg')) no-repeat;
     width: 1em;
     height: 1em;
     display: inline-block;

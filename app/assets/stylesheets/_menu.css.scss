@@ -21,7 +21,7 @@ a {
     overflow: scroll;
 }
 #bkg {
-    background: url(icons/ICObkg.svg) no-repeat center;
+    background: url(asset-path('icons/ICObkg.svg')) no-repeat center;
     background-size: 60%;
     height: 90%;
     width: 70%;    
@@ -34,7 +34,7 @@ a {
     width: 7.5em;
 }
 #icomenu {
-    background: url(icons/ICOserver.svg) no-repeat;
+    background: url(asset-path('icons/ICOserver.svg')) no-repeat;
     background-size: 98% 90%;
     margin-top: 0.5em;
     height: 7.5em;
@@ -44,7 +44,7 @@ a {
 }
 #logout {
     display: block;
-    background: url(icons/ICOlogout.svg) no-repeat bottom;
+    background: url(asset-path('icons/ICOlogout.svg')) no-repeat bottom;
     background-size: 100% 80%;
     height: 4em;
     margin-bottom: 2em;
@@ -71,18 +71,18 @@ a {
     margin: auto;    
 }
 #menu_albaran {
-    background: url(icons/ICOalbaran.svg) no-repeat top;
+    background: url(asset-path('icons/ICOalbaran.svg')) no-repeat top;
     background-size: 50% 80%; 
     padding-top: 5em;
 }
 
 #menu_factura {
-    background: url(icons/ICOfactura.svg) no-repeat top;
+    background: url(asset-path('icons/ICOfactura.svg')) no-repeat top;
     background-size:52% 80%;
     padding-top: 4.7em;
 }
 #menu_presupuesto {
-    background: url(icons/ICOpresup.svg) no-repeat top;
+    background: url(asset-path('icons/ICOpresup.svg')) no-repeat top;
     background-size:50% 90%; 
     margin-top: 0.5em;
     padding-top: 5em;
@@ -91,14 +91,14 @@ a {
     margin-top: 1em;
 }
 #new_alb, #new_fact, #new_pres {
-    background: url(icons/ICOnuevo.svg) no-repeat top;
+    background: url(asset-path('icons/ICOnuevo.svg')) no-repeat top;
     background-size: 35% 88%;
     padding-top: 4.3em;    
     font-size: 0.8em;
     width: 100%;
 }
 #index_albaran, #index_factura, #index_presupuesto {
-    background: url(icons/ICOtodos.svg) no-repeat top;
+    background: url(asset-path('icons/ICOtodos.svg')) no-repeat top;
     background-size: 40% 88%;
     padding-top: 4.3em;
     font-size: 0.8em;
@@ -109,39 +109,39 @@ a {
 
 /*---- HOVER ----*/
 #menu_albaran:hover {
-    background: url(icons/ICOalbaran_hover.svg) no-repeat top;
+    background: url(asset-path('icons/ICOalbaran_hover.svg')) no-repeat top;
     background-size: 50% 80%; 
     color: white;
     cursor: pointer;
 }
 #menu_factura:hover {
-    background: url(icons/ICOfactura_hover.svg) no-repeat top;
+    background: url(asset-path('icons/ICOfactura_hover.svg')) no-repeat top;
     background-size:52% 80%;
     color: white;
     cursor: pointer;
 }
 #menu_presupuesto:hover {
-    background: url(icons/ICOpresup_hover.svg) no-repeat top;
+    background: url(asset-path('icons/ICOpresup_hover.svg')) no-repeat top;
     background-size:50% 90%; 
     color: white;
     cursor: pointer;
 }
 #new_alb:hover, #new_fact:hover, #new_pres:hover {
-    background: url(icons/ICOnuevo_hover.svg) no-repeat top;
+    background: url(asset-path('icons/ICOnuevo_hover.svg')) no-repeat top;
     background-size: 35% 88%;
     padding-top: 4.3em;   
     color: #333333;
     background-color: #F7931E;
 }
 #index_albaran:hover, #index_factura:hover, #index_presupuesto:hover {
-    background: url(icons/ICOtodos_hover.svg) no-repeat top;
+    background: url(asset-path('icons/ICOtodos_hover.svg')) no-repeat top;
     background-size: 40% 88%;
     padding-top: 4.3em;
     color: #333333;
     background-color: #F7931E;
 }
 #logout:hover {
-    background: url(icons/ICOlogout_hover.svg) no-repeat bottom;
+    background: url(asset-path('icons/ICOlogout_hover.svg')) no-repeat bottom;
     background-size: 100% 80%;
     height: 4em;
     margin-bottom: 0.5em;
