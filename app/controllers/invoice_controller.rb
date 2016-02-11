@@ -2,22 +2,22 @@ class InvoiceController < ApplicationController
   # GET /invoices
   # GET /invoices.xml
   def index
-    eval "@#{invoice.to_s.pluralize} = invoice.to_s.classify.constantize.order('number desc')"
+    self.invoices_var = invoice_model.order('number desc')
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => (eval "@#{invoice.to_s.pluralize}") }
+      format.xml  { render :xml => invoices_var }
     end
   end
 
   # GET /invoices/1
   # GET /invoices/1.xml
   def show
-    eval "@#{invoice} = invoice.to_s.classify.constantize.find(params[:id])"
+    self.invoice_var = invoice_model.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => (eval "@#{invoice}") }
+      format.xml  { render :xml => invoice_var }
       format.pdf
     end
   end
@@ -25,31 +25,31 @@ class InvoiceController < ApplicationController
   # GET /invoices/new
   # GET /invoices/new.xml
   def new
-    eval "@#{invoice} = invoice.to_s.classify.constantize.new"
+    self.invoice_var = invoice_model.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => (eval "@#{invoice}") }
+      format.xml  { render :xml => invoice_var }
     end
   end
 
   # GET /invoices/1/edit
   def edit
-    eval "@#{invoice} = invoice.to_s.classify.constantize.find(params[:id])"
+    self.invoice_var = invoice_model.find(params[:id])
   end
 
   # POST /invoices
   # POST /invoices.xml
   def create
-    eval "@#{invoice} = invoice.to_s.classify.constantize.new(invoice_params)"
+    self.invoice_var = invoice_model.new(invoice_params)
 
     respond_to do |format|
-      if eval "@#{invoice}.save"
-        format.html { redirect_to((eval "@#{invoice}"), :notice => "#{invoice.to_s.humanize.capitalize} creada correctamente.") }
-        format.xml  { render :xml => (eval "@#{invoice}"), :status => :created, :location => (eval "@#{invoice}") }
+      if invoice_var.save
+        format.html { redirect_to(invoice_var, :notice => "#{invoice.to_s.humanize.capitalize} creada correctamente.") }
+        format.xml  { render :xml => invoice_var, :status => :created, :location => invoice_var }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => (eval "@#{invoice}.errors"), :status => :unprocessable_entity }
+        format.xml  { render :xml => invoice_var.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -57,20 +57,20 @@ class InvoiceController < ApplicationController
   # PUT /invoices/1
   # PUT /invoices/1.xml
   def update
-    eval "@#{invoice} = invoice.to_s.classify.constantize.find(params[:id])"
+    self.invoice_var = invoice_model.find(params[:id])
     
     deleted_items = eval params[:deleted][:items]
     deleted_items.each do |id|
-      Item.find(id).destroy if (eval "@#{invoice}.items.where(:id => id).exists?")
+      Item.find(id).destroy if (invoice_var.items.where(:id => id).exists?)
     end
 
     respond_to do |format|
-      if (eval "@#{invoice}.update_attributes(invoice_params)")
-        format.html { redirect_to((eval "@#{invoice}"), :notice => "#{invoice.to_s.humanize.capitalize} actualizada correctamente.") }
+      if (invoice_var.update_attributes(invoice_params))
+        format.html { redirect_to(invoice_var, :notice => "#{invoice.to_s.humanize.capitalize} actualizada correctamente.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => (eval "@#{invoice}.errors"), :status => :unprocessable_entity }
+        format.xml  { render :xml => invoice_var, :status => :unprocessable_entity }
       end
     end
   end
@@ -78,16 +78,36 @@ class InvoiceController < ApplicationController
   # DELETE /invoices/1
   # DELETE /invoices/1.xml
   def destroy
-    @invoice = invoice.to_s.classify.constantize.find(params[:id])
-    @invoice.destroy
+    self.invoice_var = invoice_model.find(params[:id])
+    invoice_var.destroy
 
     respond_to do |format|
-      format.html { redirect_to((eval "#{invoice.to_s.pluralize}_url")) }
+      format.html { redirect_to(eval "#{invoice.to_s.pluralize}_url") }
       format.xml  { head :ok }
     end
   end
 
   private
+
+  def invoice_var
+      eval "@#{invoice.to_s}"
+  end
+
+  def invoice_var=(value)
+      eval "@#{invoice.to_s} = value"
+  end
+
+  def invoices_var
+      eval "@#{invoice.to_s.pluralize}"
+  end
+
+  def invoices_var=(value)
+      eval "@#{invoice.to_s.pluralize} = value"
+  end
+
+  def invoice_model
+      invoice.to_s.classify.constantize
+  end
 
   def invoice_params
       cliente_permitted_params = [:nombre, :apellidos, :direccion, :ciudad, :provincia, :codigo_postal, :telefono, :nif]
