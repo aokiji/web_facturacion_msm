@@ -15,5 +15,6 @@
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-es
 //= require turbolinks
+//= require Chart
 //= require_tree .
 //= require menu

@@ -15,5 +15,6 @@
  *= require _fonts
  *= require _menu
  *= require _tablas
+ *= require _canvas
  *= require_self
  */

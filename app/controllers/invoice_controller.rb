@@ -88,17 +88,23 @@ class InvoiceController < ApplicationController
   end
 
   def summary
-    info = invoice_model.where(:created_at => 1.years.ago..Time.now).group_by do |i|
-        i.created_at.beginning_of_month
-    end
-    meses = []
-    valores = []
-    info.sort.each do |mes, invoices|
-      meses << I18n.l(mes, format: '%B')
-      valores << invoices.map {|i| i.total}.reduce(:+)
+    fecha_base = Date.today.beginning_of_month
+    meses = 11.downto(0).map do |m|
+        fecha_base - m.month
     end
 
-    render json: {meses: meses, valores: valores}
+    info = invoice_model.where(:created_at => meses[0]..Time.now).group_by do |i|
+        i.created_at.beginning_of_month
+    end
+
+    etiquetas_meses = meses.map do |m|
+        I18n.l(m, format: '%B')
+    end
+    valores = meses.map do |m|
+      info[m].nil? ? 0 : info[m].map {|i| i.total}.reduce(:+)
+    end
+
+    render json: {meses: etiquetas_meses, valores: valores}
   end
 
   private
