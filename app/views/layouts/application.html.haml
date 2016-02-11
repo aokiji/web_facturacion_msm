@@ -10,7 +10,7 @@
 
   %body
     #home
-      #icomenu
+      = link_to 'Home', home_path, {:id => 'icomenu'}
       %ul#menu    
         %li#albarans
           = nav_button_for :albarans, 'ALBARÁN', {:id => 'menu_albaran'}
