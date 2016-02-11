@@ -1,6 +1,8 @@
 Tienda::Application.routes.draw do
   resources :presupuestos
-  resources :facturas
+  resources :facturas do
+    get 'summary', on: :collection
+  end
   resources :albarans
   resources :users, :only => :show
   resources :user_sessions, :only => [:new, :create, :destroy]
