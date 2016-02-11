@@ -110,19 +110,19 @@ class InvoiceController < ApplicationController
   private
 
   def invoice_var
-      eval "@#{invoice.to_s}"
+      instance_variable_get("@#{invoice.to_s}")
   end
 
   def invoice_var=(value)
-      eval "@#{invoice.to_s} = value"
+      instance_variable_set("@#{invoice.to_s}", value)
   end
 
   def invoices_var
-      eval "@#{invoice.to_s.pluralize}"
+      instance_variable_get("@#{invoice.to_s.pluralize}")
   end
 
   def invoices_var=(value)
-      eval "@#{invoice.to_s.pluralize} = value"
+      instance_variable_set("@#{invoice.to_s.pluralize}", value)
   end
 
   def invoice_model
