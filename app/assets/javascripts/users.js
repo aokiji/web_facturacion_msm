@@ -16,8 +16,13 @@ var DibujarGraficaFacturas = function(canvas) {
                     }
                 ]
             };
+            
+            var options = {
+                maintainAspectRatio: true,
+                responsive: true
+            };
 
-            myNewChart = new Chart($(canvas).get(0).getContext("2d")).Bar(chartData);
+            myNewChart = new Chart($(canvas).get(0).getContext("2d")).Bar(chartData,options);
         }
     });
 };

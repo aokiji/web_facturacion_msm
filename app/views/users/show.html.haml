@@ -2,5 +2,6 @@
   $(document).on('ready', function() {return DibujarGraficaFacturas($("#canvas_facturas"));});
   $(document).on('page:load', function() {return DibujarGraficaFacturas($("#canvas_facturas"));});
 
-%h2 Facturacion
-%canvas#canvas_facturas.chart
+%h2#resumen Facturación
+#contenedorcanvas  
+  %canvas#canvas_facturas.chart

@@ -1,6 +1,34 @@
-#canvas_facturas {
-    width: 800px;
+#resumen:before {
+    content: "";
+    background: url(icons/ICOresumen.svg) no-repeat;
+    width: 2em;
+    height: 2em;
+    margin-right: 0.3em;
+    display: inline-block;
+    vertical-align: -50%
+}
+#resumen {
+    font-size: 2em;
+    margin: 0;
+    padding-top: 4em;
+    max-width: 27.5em;
+    min-width: 19em;
+    margin: auto;
+}
+#canvas_facturas {    
     display: block;
     margin: auto;
     padding: 0;
+    padding-left: 0.5em;
+}
+#contenedorcanvas {
+    width: 100%;
+    max-width: 55em;
+    min-width: 38em;
+    margin: auto;
+}
+@media (min-width: 1700px) {
+    #resumen {
+        padding-top: 6em;
+    }
 }
